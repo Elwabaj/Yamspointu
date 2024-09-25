@@ -92,9 +92,14 @@ document.addEventListener("DOMContentLoaded", function () {
         figures.forEach(figure => {
             let row = `<tr><td>${figure}</td>`;
             for (let i = 0; i < players.length; i++) {
-                if (figure === "T") {
-                    row += `<td class="total-cell" data-player="${i}" style="color: #555;">0</td>`;
-                } else {
+                if (figure === "T" || figure === "TT") {
+                    row += `<td class="total-cell" data-figure="${figure}" data-player="${i}" style="color: #555;">0</td>`;
+                } 
+                // Utiliser type="number" avec inputmode="numeric" pour éviter les problèmes de NaN
+                else if (["P", "DP", "BRE", "MINI", "MAXI", "-11"].includes(figure)) {
+                    row += `<td><input type="number" inputmode="numeric" class="manual-input" data-figure="${figure}" data-player="${i}"></td>`;
+                } 
+                else {
                     row += `<td class="score-cell" data-figure="${figure}" data-player="${i}"></td>`;
                 }
             }
@@ -103,31 +108,79 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         // Gestion des clics sur les cases des lignes 1 à 6 et celles avec des valeurs fixes
-        const scoreCells = document.querySelectorAll('.score-cell');
+        const scoreCells = document.querySelectorAll('.score-cell, .manual-input');
+        let holdTimeout;
+
         scoreCells.forEach(cell => {
             cell.addEventListener('click', function () {
                 const figure = this.getAttribute('data-figure');
                 const playerIndex = this.getAttribute('data-player');
+                let currentScore;
 
-                // Si la case correspond à une figure avec un score fixe
+                if (this.tagName === "INPUT") {
+                    currentScore = parseInt(this.value, 10);  // Assure que la valeur est bien un nombre
+                } else {
+                    currentScore = parseInt(this.textContent.trim(), 10) || 0;  // Par défaut à 0 si vide
+                }
+
+                if (isNaN(currentScore)) {
+                    currentScore = 0;  // Gérer les NaN en initialisant à 0
+                }
+
                 if (fixedScores[figure]) {
                     this.textContent = fixedScores[figure];
-                } else {
+                } else if (!isNaN(currentScore)) {
                     let figureValue = parseInt(figure, 10);
-                    let currentScore = parseInt(this.textContent.trim(), 10) || 0;
+                    currentScore += figureValue;
 
-                    // Incrémenter le score (pour les cases 1 à 6)
-                    currentScore = currentScore + figureValue;
                     if (currentScore > figureValue * 5) {
-                        this.textContent = figureValue; // Revenir à la valeur de base après 5 fois
+                        this.textContent = figureValue;  // Revenir à la valeur de base après 5 fois
                     } else {
                         this.textContent = currentScore;
                     }
                 }
-
-                // Mettre à jour la ligne T pour chaque joueur
-                checkAndUpdateColor(playerIndex);
             });
+
+            // Gestion de l'effacement du contenu après un maintien de 1s
+            cell.addEventListener('mousedown', function () {
+                const figure = this.getAttribute('data-figure');
+                if (figure !== "T" && figure !== "TT") {
+                    holdTimeout = setTimeout(() => {
+                        this.textContent = ''; // Efface le contenu de la case après 1s de maintien
+                    }, 1000); // 1 seconde
+                }
+            });
+
+            // Ajout des événements pour mobile (touchstart et touchend)
+            cell.addEventListener('touchstart', function () {
+                const figure = this.getAttribute('data-figure');
+                if (figure !== "T" && figure !== "TT") {
+                    holdTimeout = setTimeout(() => {
+                        this.textContent = ''; // Efface le contenu de la case après 1s de maintien
+                    }, 1000); // 1 seconde
+                }
+            });
+
+            cell.addEventListener('mouseup', function () {
+                clearTimeout(holdTimeout); // Annule l'effacement si le clic est relâché avant 1 seconde
+            });
+
+            cell.addEventListener('touchend', function () {
+                clearTimeout(holdTimeout); // Annule aussi l'effacement sur mobile
+            });
+
+            cell.addEventListener('mouseleave', function () {
+                clearTimeout(holdTimeout); // Annule aussi l'effacement si la souris quitte la case
+            });
+
+            // Ajoute un événement "focus" pour que le clavier s'ouvre et éviter NaN
+            if (cell.tagName === "INPUT") {
+                cell.addEventListener('focus', function () {
+                    if (this.value === '' || isNaN(parseInt(this.value, 10))) {
+                        this.value = '';  // S'assurer que le champ n'affiche pas NaN
+                    }
+                });
+            }
         });
 
         // Fonction pour vérifier si toutes les cases des lignes 1 à 6 sont remplies pour un joueur

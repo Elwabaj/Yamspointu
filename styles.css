@@ -31,7 +31,7 @@ header {
 
 h1 {
     font-size: 1.5rem;
-    color: white;
+    color: #66FF33; /* Couleur du titre */
 }
 
 nav {
@@ -47,13 +47,13 @@ nav ul li {
     margin: 10px 0;
 }
 
-/* Style des boutons avec fond noir et bordures blanches */
+/* Style des boutons avec fond noir et bordures vertes (#66FF33) */
 nav ul li a {
     text-decoration: none;
     padding: 15px 30px;
     background-color: #000; /* Fond noir */
-    color: white;
-    border: 2px solid white; /* Bordures blanches */
+    color: #66FF33; /* Texte vert */
+    border: 2px solid #66FF33; /* Bordures vertes */
     border-radius: 10px;
     font-size: 1.2rem;
     transition: background-color 0.3s, border-color 0.3s;
@@ -63,7 +63,7 @@ nav ul li a {
 
 nav ul li a:hover {
     background-color: #333; /* Fond légèrement gris au survol */
-    border-color: #ccc; /* Bordure gris clair au survol */
+    border-color: #66FF33; /* Bordure reste verte au survol */
 }
 
 main {
@@ -80,7 +80,7 @@ main {
     left: 20px;
     padding: 10px;
     background-color: transparent;
-    color: white;
+    color: #66FF33; /* Couleur de la flèche */
     border: none;
     font-size: 2rem;
     cursor: pointer;
@@ -88,7 +88,7 @@ main {
 }
 
 .backBtn:hover {
-    color: #777;
+    color: #66FF33; /* Couleur reste verte même au survol */
 }
 
 /* Tableau et cellules */
@@ -186,4 +186,3 @@ td:active {
     margin: 0;
     box-sizing: border-box;
 }
-
