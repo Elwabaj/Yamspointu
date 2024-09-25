@@ -1,0 +1,20 @@
+{
+  "name": "Yams Pointu",
+  "short_name": "Yams",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "path/to/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "path/to/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

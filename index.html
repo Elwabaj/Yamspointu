@@ -2,8 +2,20 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> <!-- Désactivation du zoom -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Yams Pointu</title>
+
+    <!-- Activer le mode Web App pour iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Yams Pointu">
+
+    <!-- Icône pour l'écran d'accueil iPhone -->
+    <link rel="apple-touch-icon" href="path/to/icon.png"> <!-- Remplace par le chemin de ton icône -->
+
+    <!-- Fichier manifeste pour PWA -->
+    <link rel="manifest" href="manifest.json">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,14 +29,14 @@
             <ul>
                 <li><a href="#" id="newGame">Nouvelle Partie</a></li>
                 <li><a href="#" id="rules">Règles</a></li>
-                <li><a href="#" id="scores">Scores</a></li> <!-- Texte modifié ici -->
+                <li><a href="#" id="scores">Scores</a></li>
             </ul>
         </nav>
     </section>
 
     <!-- Section pour le choix des joueurs (initialement cachée) -->
     <section id="playerSelection" style="display: none;">
-        <button class="backBtn" id="backBtnPlayer">&#8592;</button> <!-- Flèche de retour -->
+        <button class="backBtn" id="backBtnPlayer">&#8592;</button>
         <h2>Nouvelle Partie - Choix des Joueurs</h2>
         <label for="numPlayers">Nombre de joueurs :</label>
         <select id="numPlayers">
@@ -40,19 +52,21 @@
 
     <!-- Section pour le tableau de comptage de points (initialement cachée) -->
     <section id="scoreTableSection" style="display: none;">
-        <button class="backBtn" id="backBtnScore">&#8592;</button> <!-- Flèche de retour -->
+        <button class="backBtn" id="backBtnScore">&#8592;</button>
         <h2>Tableau de Score</h2>
         <table id="scoreTable"></table>
     </section>
 
     <!-- Section pour les règles (initialement cachée) -->
     <section id="rulesSection" style="display: none;">
-        <button class="backBtn" id="backBtnRules">&#8592;</button> <!-- Flèche de retour -->
+        <button class="backBtn" id="backBtnRules">&#8592;</button>
         <h2>Règles du Jeu</h2>
-        <p id="rulesText">Le Yams Pointu est un jeu de dés avec des règles spécifiques à chaque manche. <br>
-        1. Vous devez réaliser des figures avec les dés. <br>
-        2. Les figures sont : Brelan, Carré, Full, etc. <br>
-        3. Le but est de maximiser les points en fonction des figures obtenues. <br></p>
+        <p id="rulesText">
+            Le Yams Pointu est un jeu de dés avec des règles spécifiques à chaque manche. <br>
+            1. Vous devez réaliser des figures avec les dés. <br>
+            2. Les figures sont : Brelan, Carré, Full, etc. <br>
+            3. Le but est de maximiser les points en fonction des figures obtenues. <br>
+        </p>
     </section>
 
     <script src="script.js"></script>
