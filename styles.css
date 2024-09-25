@@ -170,3 +170,92 @@ td {
 td:active {
     background-color: #222; /* Garde le fond original */
 }
+
+.manual-input {
+    background: none;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px; /* Taille du texte, à ajuster selon la taille du texte dans les autres cases */
+    font-family: inherit; /* Utilise la même police que le tableau */
+    width: 100%; /* Prend toute la largeur de la cellule */
+    height: 100%; /* Prend toute la hauteur de la cellule */
+    outline: none; /* Enlève la bordure lors du focus */
+    appearance: textfield; /* Masque les boutons de modification (pour les navigateurs comme Safari) */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Le header avec le titre et la flèche de retour est fixe */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000; /* Couleur de fond du header */
+    z-index: 100;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Style pour le titre plus petit */
+header h1 {
+    font-size: 20px; /* Taille réduite pour le titre */
+    color: white;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Style pour la flèche de retour */
+.backBtn {
+    font-size: 24px; /* Taille de la flèche */
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Le tableau doit s'adapter à l'espace disponible */
+#scoreTableSection {
+    margin-top: 60px; /* Ajuste pour laisser de la place au header fixe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* Prend tout l'écran sauf la zone du header */
+    overflow: hidden; /* Empêche le défilement */
+}
+
+/* Le tableau occupe tout l'espace disponible */
+#scoreTable {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+/* Ajustement de la taille du texte et des cellules du tableau */
+#scoreTable th, #scoreTable td {
+    font-size: 14px; /* Réduit la taille du texte dans les cellules */
+    padding: 5px;
+    border: 1px solid white;
+    color: white;
+}
+
+#scoreTable th {
+    background-color: #444;
+}
+
+#scoreTable td {
+    background-color: #333;
+}
+
+/* Assure que le tableau s'adapte à la taille de l'écran */
+#scoreTableSection table {
+    height: 100%;
+    width: 100%;
+}
