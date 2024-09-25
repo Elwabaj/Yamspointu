@@ -41,9 +41,9 @@ nav ul li a:hover {
 /* Styles pour le logo */
 #logo {
     display: block;
-    width: 150px; /* Taille de base en pixels (ou en %) */
+    width: 300px; /* Taille de base en pixels (ou en %) */
     height: auto; /* Garde les proportions de l'image */
-    margin-bottom: 20px; /* Espace sous le logo */
+    margin-bottom: 100px; /* Espace sous le logo */
 }
 
 /* Si tu veux adapter la taille selon les écrans */
