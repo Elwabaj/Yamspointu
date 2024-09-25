@@ -1,0 +1,61 @@
+/* Styles pour la section du tableau de scores */
+#scoreTableSection {
+    padding-top: 60px; /* Espace pour le header */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Garde le tableau en haut */
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    height: calc(100vh - 60px); /* Hauteur disponible sous le header */
+    overflow: hidden; /* Empêche le défilement global de la section */
+}
+
+/* Styles pour le tableau avec défilement */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    max-height: calc(100vh - 120px); /* Hauteur limite pour permettre le défilement du tableau */
+    overflow-y: auto; /* Ajoute un défilement vertical si le tableau dépasse la hauteur */
+    display: block; /* Rend le tableau scrollable */
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+    font-weight: 400;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+td {
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+}
+
+/* Désactiver l'effet d'appui sur les cellules */
+td:active {
+    background-color: inherit;
+}
+
+/* Styles pour les entrées manuelles */
+.manual-input {
+    background: none;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Roboto', Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    appearance: textfield;
+    padding: 0;
+    margin: 0;
+}
