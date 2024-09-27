@@ -1,3 +1,12 @@
+/* Désactiver la sélection de tout texte et éléments sur toute l'application */
+* {
+    user-select: none; /* Désactiver la sélection de tout le contenu */
+    -webkit-user-select: none;   /* Désactiver la sélection de texte sur mobile Safari */
+    -moz-user-select: none;      /* Désactiver la sélection sur Firefox */
+    -ms-user-select: none;       /* Désactiver la sélection sur Internet Explorer/Edge */
+}
+
+
 /* Styles généraux */
 body {
     font-family: 'Roboto', Arial, sans-serif;
