@@ -16,16 +16,14 @@ nav ul {
 }
 
 nav ul li {
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 nav ul li a {
     text-decoration: none;
     padding: 15px 30px;
-    background-color: #000;
+    background-color: #66FF33;
     color: white;
-    border: 2px solid #66FF33;
-    border-radius: 10px;
     font-size: 1.2rem;
     font-weight: 400;
     transition: background-color 0.3s, border-color 0.3s;
@@ -38,6 +36,12 @@ nav ul li a:hover {
     border-color: #66FF33;
 }
 
+#newGame {
+    background-color: #333;
+    border-color: #66FF33;
+}
+    
+
 /* Styles pour le logo */
 #logo {
     display: block;
@@ -49,7 +53,7 @@ nav ul li a:hover {
 /* Si tu veux adapter la taille selon les écrans */
 @media (max-width: 768px) {
     #logo {
-        width: 120px; /* Plus petit pour les écrans mobiles */
+        width: 300px; /* Plus petit pour les écrans mobiles */
     }
 }
 
