@@ -64,7 +64,7 @@ td:active {
 
 /* Désactiver tout changement de couleur des cases lors de l'activation (clic ou touche) */
 td {
-    background-color: #222; /* Fond par défaut des cases */
+    background-color: #050d03; /* Fond par défaut des cases */
     color: white;           /* Couleur du texte */
     cursor: pointer;        /* Le curseur change pour indiquer que c'est cliquable */
 }
@@ -73,6 +73,6 @@ td {
 td:active,
 td:focus,
 td:hover {
-    background-color: #222 !important; /* Empêche tout changement de fond même en appuyant */
+    background-color: #050d03 !important; /* Empêche tout changement de fond même en appuyant */
     outline: none; /* Empêche les bordures de focus */
 }
