@@ -29,12 +29,12 @@ th, td {
 }
 
 th {
-    background-color: #19420b;
-    color: white;
+    background-color: #14330a;
+    color: #66FF33;
 }
 
 td {
-    background-color: #222;
+    background-color: #050d03;
     color: white;
     cursor: pointer;
 }
