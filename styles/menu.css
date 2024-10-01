@@ -59,6 +59,6 @@ nav ul li a:hover {
 
 @media (max-width: 480px) {
     #logo {
-        width: 100px; /* Encore plus petit pour les très petits écrans */
+        width: 200px; /* Encore plus petit pour les très petits écrans */
     }
 }
